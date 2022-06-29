@@ -1,0 +1,37 @@
+<div class="table-wrapper">
+    <div class="table-title d-flex justify-content-between mb-3">
+        <h5>Dashboard</h5>
+        <button class="btn btn-outline-success" (click)="addModal()">
+            <i class="fas fa-plus-circle"></i><span> Add New</span>
+        </button>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students">
+                <td>{{student.FirstName}}</td>
+                <td>{{student.LastName}}</td>
+                <td>{{student.Email}}</td>
+                <td>{{student.Address}}</td>
+                <td>{{student.Phone}}</td>
+                <td>
+                    <button (click)="'/student/' + student._id" type="button"
+                        class="btn btn-outline-primary btn-sm me-2"><i class="bi bi-eye"></i></button>
+                    <button (click)="editModal(student, student._id)" type="button" class="btn btn-outline-secondary btn-sm me-2"><i
+                            class="bi bi-pencil"></i></button>
+                    <button (click)="hapus(student._id)" type="button" class="btn btn-outline-danger btn-sm"><i
+                            class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update Student</h4>
+    <button type="button" class="btn-close" aria-label="Close"
+        (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="submit()" id="form">
+        <div class="form-floating mb-3">
+            <input id="FirstName" [class.is-invalid]="f['FirstName'].touched && f['FirstName'].invalid" placeholder="John doe"
+            formControlName="FirstName" type="text" class="form-control" required>
+            <label for="FirstName">FirstName</label>
+            <div *ngIf="f['FirstName'].touched && f['FirstName'].invalid"
+                class="text-danger text-sm-start">
+                <small *ngIf="f['FirstName'].errors && f['FirstName'].errors['required']">FirstName is
+                    required.</small>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="LastName" [class.is-invalid]="f['LastName'].touched && f['LastName'].invalid" placeholder="35" formControlName="LastName" type="text"
+                class="form-control" required>
+            <label for="LastName">LastName</label>
+            <div *ngIf="f['LastName'].touched && f['LastName'].invalid" class="text-danger text-sm-start">
+                <small *ngIf="f['LastName'].errors && f['LastName'].errors['required']">LastName is required.</small>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="Email" [class.is-invalid]="f['Email'].touched && f['Email'].invalid" placeholder="35" formControlName="Email" type="text"
+                class="form-control" required readonly>
+            <label for="Email">Email</label>
+            <div *ngIf="f['Email'].touched && f['Email'].invalid" class="text-danger text-sm-start">
+                <small *ngIf="f['Email'].errors && f['Email'].errors['required']">Email is required.</small>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="Address" [class.is-invalid]="f['Address'].touched && f['Address'].invalid" placeholder="35" formControlName="Address" type="text"
+                class="form-control" required>
+            <label for="Address">Address</label>
+            <div *ngIf="f['Address'].touched && f['Address'].invalid" class="text-danger text-sm-start">
+                <small *ngIf="f['Address'].errors && f['Address'].errors['required']">Address is required.</small>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input id="Phone" [class.is-invalid]="f['Phone'].touched && f['Phone'].invalid" placeholder="35" formControlName="Phone" type="text"
+                class="form-control" required>
+            <label for="Phone">Phone</label>
+            <div *ngIf="f['Phone'].touched && f['Phone'].invalid" class="text-danger text-sm-start">
+                <small *ngIf="f['Phone'].errors && f['Phone'].errors['required']">Phone is required.</small>
+                <small *ngIf="f['Phone'].errors && f['Phone'].errors['pattern']">Phone is invalid.</small>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" form="form" class="btn btn-outline-primary">Save Changes</button>
+</div>
